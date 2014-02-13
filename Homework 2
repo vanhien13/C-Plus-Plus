@@ -1,0 +1,93 @@
+/*
+ *  Source program for Homework #2 for CIS 15A
+ *  Written by Hien V. Nguyen , 4/19/2009
+ *  Option A
+ */
+
+#include <iostream>
+using namespace std;
+
+int  main()
+{
+   double n, answer;
+
+   // calculation for n = 6:
+   n = 6;
+   
+   // first expression: 1 + 2 + 3 + ... + n
+   answer = 1 + 2 + 3 + 4 + 5 + 6;
+   cout << "1 + 2 + 3.. + " << n << " = " << answer << endl << endl;
+
+   // second expression: (n*(n + 1))/2
+   answer = (n*(n + 1))/2;
+   cout << "(" << n << "*(" << n << " + 1" << ")" << ")" <<"/2" << 
+   " = " << answer << endl << endl;
+
+   // third expression: 3 + 5 + 7 + ... + (2n - 1)
+   answer = 3 + 5 + 7 + 9 + (2*n - 1);
+   cout << "3 + 5 + 7 + ... + " << " (2*" << n << " - 1)" << " = " 
+   << answer << endl << endl;
+
+   // fourth expression: n^2 -1
+   answer = n*n - 1;
+   cout << n << "*" << n << " - 1" << " = " << answer << endl << endl;
+ 
+// calculation for n = 9:
+   n = 9;
+   
+   // first expression: 1 + 2 + 3 + ... + n
+   answer = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9;
+   cout << "1 + 2 + 3.. + " << n << " = " << answer << endl << endl;
+
+   // second expression: (n*(n + 1))/2
+   answer = (n*(n + 1))/2;
+   cout << "(" << n << "*(" << n << " + 1" << ")" << ")" <<"/2" << 
+   " = " << answer << endl << endl;
+
+   // third expression: 3 + 5 + 7 + ... + (2n - 1)
+   answer = 3 + 5 + 7 + 9 + 11 + 13 + 15 + (2*n - 1);
+   cout << "3 + 5 + 7 + ... + " << " (2*" << n << " - 1)" << " = " 
+   << answer << endl << endl;
+
+   // fourth expression: n^2 -1
+   answer = n*n - 1;
+   cout << n << "*" << n << " - 1" << " = " << answer << endl << endl;
+
+   // calculation for n = 16:
+   n = 16;
+   
+   // first expression: 1 + 2 + 3 + ... + n
+   answer = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 + 11 + 12 + 13 + 14 
+   + 15 + 16;
+   cout << "1 + 2 + 3.. + " << n << " = " << answer << endl << endl;
+
+   // second expression: (n*(n + 1))/2
+   answer = (n*(n + 1))/2;
+   cout << "(" << n << "*(" << n << " + 1" << ")" << ")" <<"/2" << 
+   " = " << answer << endl << endl;
+
+   // third expression: 3 + 5 + 7 + ... + (2n - 1)
+   answer = 3 + 5 + 7 + 9 + 11 + 13 + 15 + 17 + 19 + 21 + 23 + 25 + 
+   + 27 + 29 + (2*n - 1);
+   cout << "3 + 5 + 7 + ... + " << " (2*" << n << " - 1)" << " = " 
+   << answer << endl << endl;
+
+   // fourth expression: n^2 -1
+   answer = n*n - 1;
+   cout << n << "*" << n << " - 1" << " = " << answer << endl << endl;
+   
+   return 0;
+}
+
+// *------------------- OUTPUT GENERATED FROM SOURCE CODE ABOVE IN TABULAR FORMAT ----------------
+
+/*************************************************************************************************
+**************************************** Mathematical Expressions ********************************
+**************************************************************************************************	
+*  n       *     1 + 2 + 3 + … + n  *	(n*(n + 1))/2   *    3 + 5 + … + (2n - 1)      *  n^2 - 1 *
+**************************************************************************************************
+*  6       *             21	      *            21    *        35                    *     35   *            
+*  9       *             45	      *            45    *		    80                    *     80	 *
+*  16      *             136	      *            136   *		    225	                 *     225  *
+**************************************************************************************************
+// -------------------------------------- END OF SUBMISSION -------------------------------------*/
