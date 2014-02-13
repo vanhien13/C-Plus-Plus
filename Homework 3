@@ -1,0 +1,155 @@
+// CIS 15A - Assignment 3, Option A
+// Hien V. Nguyen
+
+//------------------------SOURCE----------------------------------
+
+
+#include <iostream>
+using namespace std;
+
+int  main()
+{
+   // Declare and define variables
+   double dollars_per_wh = 0.00005;  
+   double sys_total_ref, sys_total_wh, sys_total_tv, bill_total;
+   int watts, hours, days = 30 ; 
+      
+   // Ask for user inputs for the first system: refrigerator
+   cout << "How many watts per hour is your refrigerator using ? ";
+   cin >> watts;
+   cout << "How many hours a day do you use your refrigerator ? ";
+   cin >> hours;
+
+   // Now test each number to see if either is negative
+   if (watts < 0)
+   {
+      cout << "Error - negative watts detected.\n";
+      return 1;
+   }
+
+   if (hours < 0)
+   {
+      cout << "Error - negative hours detected.\n";
+      return 1;
+   }
+
+   cout << "No user-input errors so continue with the processing! \n";
+   
+   // Computing the cost for using the refrigerator
+   sys_total_ref = dollars_per_wh*watts*hours*days;
+   cout << "Your refrigerator's usage costs $" << sys_total_ref << 
+      " this month.\n";
+
+   // Ask for user inputs for the second system: water heater
+   cout << "How many watts per hour is your water heater using ? ";
+   cin >> watts;
+   cout << "How many hours a day do you use your water heater ? ";
+   cin >> hours;
+
+   // Now test each number to see if either is negative
+   if (watts < 0)
+   {
+      cout << "Error - negative watts detected.\n";
+      return 1;
+   }
+
+   if (hours < 0)
+   {
+      cout << "Error - negative hours detected.\n";
+      return 1;
+   }
+
+   cout << "No user-input errors so continue with the processing! \n";
+   
+   // Computing the cost for using the water_heater
+   sys_total_wh = dollars_per_wh*watts*hours*days;
+   cout << "Your water_heater's usage costs $" << sys_total_wh << 
+      " this month.\n";
+
+   // Ask for user inputs for the third system: television
+   cout << "How many watts per hour is your television using ? ";
+   cin >> watts;
+   cout << "How many hours a day do you use your television ? ";
+   cin >> hours;
+
+   // Now test each number to see if either is negative
+   if (watts < 0)
+   {
+      cout << "Error - negative watts detected.\n";
+      return 1;
+   }
+
+   if (hours < 0)
+   {
+      cout << "Error - negative hours detected.\n";
+      return 1;
+   }
+
+   cout << "No user-input errors so continue with the processing! \n";
+   
+   // Computing the cost for the using the television
+   sys_total_tv = dollars_per_wh*watts*hours*days;
+   cout << "Your television's usage costs $" << sys_total_tv << 
+      " this month.\n";
+
+   // Compute the total electricity usage
+   bill_total = sys_total_ref + sys_total_wh + sys_total_tv;
+   cout << "Your total electricity usage costs $" << bill_total << 
+      " this month.\n";
+   
+   return 0;
+}
+
+
+/*------------------RUN (OUTPUT) Number 1--------------------
+
+How many watts per hour is your refrigerator using ? 800
+How many hours a day do you use your refrigerator ? 24
+No user-input errors so continue with the processing!
+Your refrigerator's usage costs $28.8 this month.
+How many watts per hour is your water heater using ? 4474
+How many hours a day do you use your water heater ? 5
+No user-input errors so continue with the processing!
+Your water_heater's usage costs $33.555 this month.
+How many watts per hour is your television using ? 150
+How many hours a day do you use your television ? 2
+No user-input errors so continue with the processing!
+Your television's usage costs $0.45 this month.
+Your total electricity usage costs $62.805 this month.
+Press any key to continue . . .
+
+
+/*------------------RUN (OUTPUT) Number 2--------------------
+
+How many watts per hour is your refrigerator using ? 799
+How many hours a day do you use your refrigerator ? 21
+No user-input errors so continue with the processing!
+Your refrigerator's usage costs $25.1685 this month.
+How many watts per hour is your water heater using ? 4473
+How many hours a day do you use your water heater ? 3
+No user-input errors so continue with the processing!
+Your water_heater's usage costs $20.1285 this month.
+How many watts per hour is your television using ? 135
+How many hours a day do you use your television ? 5
+No user-input errors so continue with the processing!
+Your television's usage costs $1.0125 this month.
+Your total electricity usage costs $46.3095 this month.
+Press any key to continue . . .
+
+
+/*------------------RUN (OUTPUT) Number 3--------------------
+
+How many watts per hour is your refrigerator using ? 757
+How many hours a day do you use your refrigerator ? 22
+No user-input errors so continue with the processing!
+Your refrigerator's usage costs $24.981 this month.
+How many watts per hour is your water heater using ? 4300
+How many hours a day do you use your water heater ? 12
+No user-input errors so continue with the processing!
+Your water_heater's usage costs $77.4 this month.
+How many watts per hour is your television using ? 131
+How many hours a day do you use your television ? -5
+Error - negative hours detected.
+Press any key to continue . . .
+
+--------------------------END OF RUN-------------------------*/
