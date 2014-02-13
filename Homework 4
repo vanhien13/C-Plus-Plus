@@ -1,0 +1,195 @@
+// CIS 15A - Assignment 4, Option A
+// Hien V. Nguyen
+
+//-------------------------------------SOURCE----------------------------------
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(void)
+{
+   string temp_string = "begin";
+   char response = temp_string[0];
+   double tot_balance, withdrawal, deposit;
+   tot_balance = 5000;
+   
+   // keep prompting the user for an action until he or she chooses to quit.
+   while (response != 'q' && response != 'Q')
+   {
+      // give the user a list of actions and ask what he or she wants to do.
+      cout << "B: Balance  "  << "       " << "D: Deposit " << endl;
+      cout << "W: Withdraw "  << "       " << "Q: Quit    " << endl;
+      cout << "What would you like to do today?" << endl;
+      cin >> temp_string;
+      response = temp_string[0];
+      cout << "Your chose: " << response << endl;
+      
+      // if the user chooses the letter 'B' then give the balance.
+      if (response == 'b' || response  == 'B')
+      {
+         cout << "Your total balance is " << tot_balance << endl;
+      }
+      // if the user chooses the letter 'W' then ask how much to withdraw.
+      else if (response == 'w' || response== 'W')
+      {
+         cout << "How much do you like to withdraw today?" << endl;
+         cin >> withdrawal;
+         // if the withrawal amount is valid then follow order.
+         if (withdrawal >= 0 && withdrawal <= tot_balance)
+         {
+            tot_balance = tot_balance - withdrawal;
+            cout << "You withdrew " << withdrawal << " dollars today." << endl;
+            cout << "Your total balance is " << tot_balance << "." << endl;
+         }
+         // if the user enter an invalid response then ask to try again
+         else 
+         {
+            cout << "You have entered an invalid response!" << endl;  
+            cout << "A withdrawal has to be non-negative" <<
+               " and less than or equal to your balance." << endl;
+         }
+      } 
+      // if the user chooses the letter 'D' then ask how much to deposit.
+      else if (response == 'd' || response  == 'D')
+      {
+         cout << "How much do you like to deposit today?" << endl;
+         cin >> deposit;
+         // if the deposit amount is valid then follow order.
+         if (deposit > 0)
+         {
+            tot_balance = tot_balance + deposit;
+            cout << "You deposited " << deposit << " dollars today." << endl;
+            cout << "Your total balance is " << tot_balance << "." << endl;
+         }  
+         // if the user enter an invalid response then ask to try again
+         else 
+         {
+            cout << "You have entered an invalid response!" 
+               " A deposit has to be non-negative." << endl;
+         }
+      }
+      // if the users chose to quit then break the loop
+      else if (response == 'q' || response == 'Q')
+      {
+         cout << "Goodbye, and please have a nice day!" << endl;
+         break;
+      }
+      // for invalid responses, ask again for a proper one 
+      else 
+      {
+         cout << "Invalid Option! Please choose again!" << endl;
+      }
+   } 
+}
+
+/*----------------------------------RUN (OUTPUT)------------------------------
+
+B: Balance         D: Deposit
+W: Withdraw        Q: Quit
+What would you like to do today?
+b
+Your chose: b
+Your total balance is 5000
+B: Balance         D: Deposit
+W: Withdraw        Q: Quit
+What would you like to do today?
+s
+Your chose: s
+Invalid Option! Please choose again!
+B: Balance         D: Deposit
+W: Withdraw        Q: Quit
+What would you like to do today?
+d
+Your chose: d
+How much do you like to deposit today?
+500
+You deposited 500 dollars today.
+Your total balance is 5500.
+B: Balance         D: Deposit
+W: Withdraw        Q: Quit
+What would you like to do today?
+withdraw
+Your chose: w
+How much do you like to withdraw today?
+10000
+You have entered an invalid response!
+A withdrawal has to be non-negative and less than or equal to your balance.
+B: Balance         D: Deposit
+W: Withdraw        Q: Quit
+What would you like to do today?
+w
+Your chose: w
+How much do you like to withdraw today?
+600
+You withdrew 600 dollars today.
+Your total balance is 4900.
+B: Balance         D: Deposit
+W: Withdraw        Q: Quit
+What would you like to do today?
+Deposit
+Your chose: D
+How much do you like to deposit today?
+-3
+You have entered an invalid response! A deposit has to be non-negative.
+B: Balance         D: Deposit
+W: Withdraw        Q: Quit
+What would you like to do today?
+deposit
+Your chose: d
+How much do you like to deposit today?
+1000
+You deposited 1000 dollars today.
+Your total balance is 5900.
+B: Balance         D: Deposit
+W: Withdraw        Q: Quit
+What would you like to do today?
+won
+Your chose: w
+How much do you like to withdraw today?
+100
+You withdrew 100 dollars today.
+Your total balance is 5800.
+B: Balance         D: Deposit
+W: Withdraw        Q: Quit
+What would you like to do today?
+Withdraw
+Your chose: W
+How much do you like to withdraw today?
+300
+You withdrew 300 dollars today.
+Your total balance is 5500.
+B: Balance         D: Deposit
+W: Withdraw        Q: Quit
+What would you like to do today?
+Das
+Your chose: D
+How much do you like to deposit today?
+200
+You deposited 200 dollars today.
+Your total balance is 5700.
+B: Balance         D: Deposit
+W: Withdraw        Q: Quit
+What would you like to do today?
+BALANCE
+Your chose: B
+Your total balance is 5700
+B: Balance         D: Deposit
+W: Withdraw        Q: Quit
+What would you like to do today?
+dddr
+Your chose: d
+How much do you like to deposit today?
+678
+You deposited 678 dollars today.
+Your total balance is 6378.
+B: Balance         D: Deposit
+W: Withdraw        Q: Quit
+What would you like to do today?
+q
+Your chose: q
+Goodbye, and please have a nice day!
+Press any key to continue . . .
+
+---------------------------------------END OF RUN-----------------------------*/
+
