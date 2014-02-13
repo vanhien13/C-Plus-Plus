@@ -1,0 +1,80 @@
+// CIS 15A - Assignment 5, Option A
+// Hien V. Nguyen
+
+//----------------------------SOURCE----------------------------
+
+#include <iostream>
+#include <string>
+using namespace std;
+ 
+int main()
+{ 
+   // Declare some variables
+   string str_user, str_user_u, str_user_l;
+   char letter;
+   int length, vow_num = 0, con_num = 0;
+         
+   // Get the text from the user
+   cout << "Please enter text! \n";
+   getline(cin, str_user);
+   length = str_user.length();
+
+   // Change the text to all upper case  
+   for (int i = 0; i < length; i++)
+   {            
+      (str_user[i]) = toupper(str_user[i]);
+       str_user_u = str_user;         
+   }
+   // Change the text to all lower case    
+   for (int i = 0; i < length; i++)
+   {              
+      (str_user[i]) = tolower(str_user[i]);
+       str_user_l = str_user;         
+   }
+   // Count the number of vowels and consonants   
+   for (int i = 0; i < length; i++)
+   {      
+      letter = str_user_l[i];
+      if (isalpha(letter))
+      {
+         if (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o'
+            || letter == 'u') 
+         {
+            vow_num = vow_num + 1;
+         }
+         else
+         {          
+            con_num = con_num + 1;
+         }
+      }
+    }
+
+   // Show the output on screen
+   cout << "The upper case letter string is: " << str_user_u << endl;
+   cout << "The lower case letter string is: " << str_user_l << endl;
+   cout << "The number of vowels in the string is: " << vow_num << endl;   
+   cout << "The number of consonants in the string is: " << con_num << endl;     
+   cout << "The reverse string is: ";
+   
+   // Reverse the orginial string
+   for (int i = length - 1; i >= 0 ;i--)
+   {      
+      cout << str_user[i];       
+   }    
+   
+   cout << endl;
+   
+   return (0);
+}
+
+
+/*------------------------OUTPUT--------------------------------
+Please enter text!
+This is a C++ program.
+The upper case letter string is: THIS IS A C++ PROGRAM.
+The lower case letter string is: this is a c++ program.
+The number of vowels in the string is: 5
+The number of consonants in the string is: 10
+The reverse string is: .margorp ++c a si siht
+Press any key to continue . . .
+---------------------------------------------------------------*/
