@@ -1,0 +1,371 @@
+// CIS 15A - Assignment 6, Option A
+// Hien V. Nguyen
+
+//-------------------------------------SOURCE----------------------------------
+
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <time.h>
+using namespace std;
+ 
+// method prototypes
+void StateWelcome();
+int GetBet();
+string PullOne();
+int GetPayMultiplier(string spin1, string spin2, string spin3);
+void Display(string spin1, string spin2, string spin3, int winnings);
+
+int main()
+{ 
+   // declare variables and set time seed;
+   int bet, multiplier, money;
+   string outcome1, outcome2, outcome3;
+   srand (time(NULL));
+   StateWelcome();
+  
+   bet = 13;
+   // keep asking for the user for a bet till the user choose 0 to quit
+   while (bet != 0)
+   {
+      bet = GetBet();
+      if (bet >= 1 && bet <= 100)
+      {
+         outcome1 = PullOne();
+         outcome2 = PullOne();
+         outcome3 = PullOne();
+         multiplier = GetPayMultiplier(outcome1, outcome2, outcome3);
+         money = bet * multiplier;
+         Display(outcome1, outcome2, outcome3, money);
+      }
+   } 
+} 
+
+// gives a welcome to the gambler
+void StateWelcome()
+{
+   string welcome;
+   welcome = "Welcome to the our Jackpot Slot Machine. \n"
+      "Let's play! \n"
+      "The more you bet the more you will win. \n"
+      "Please play responsibly. \n";
+   cout << welcome;
+}
+
+// get the bet from the gambler and return the amount
+int GetBet()
+{
+   string prompt;
+   prompt = "Please enter your bet from 1 to 100 dollars. \n"
+            "Enter 0 to quit. \n"
+            "\nYour bet: ";
+   int bet;
+   cout << prompt;
+   cin >> bet;
+   cout << endl;
+   if (bet >= 1 && bet <= 100)
+   {
+      return bet;
+   }
+   else if (bet < 0 || bet > 100)
+   {
+      cout << "You have entered an invalid bet, please try again! \n";
+      return bet;
+   }
+   else if (bet == 0)
+   {
+      cout << "Thank you for playing, please come again! \n";
+   }  
+}
+     
+// return a random string from four possilities
+string PullOne()
+{
+   string temp_string;
+   int rand_num;
+
+   // random number generator
+   rand_num = rand() % 100 + 1;
+         
+   if (rand_num > 0 && rand_num <= 25)
+   {
+      temp_string = "BAR";
+   } 
+   else if (rand_num > 26 && rand_num <= 50)
+   {
+      temp_string = "7";
+   }   
+   else if (rand_num > 51 && rand_num <= 75)
+   {
+      temp_string = "cherries";
+   }
+   else
+   {
+      temp_string = "space";
+   }   
+   return temp_string;
+}
+
+// get the multiplier according to the string
+int GetPayMultiplier(string spin1, string spin2, string spin3)
+{
+   int multiplier;
+   
+   if (spin1 == "cherries" && spin2 != "cherries")
+   {
+      multiplier = 3;
+   }
+   else if (spin1 == "cherries" && spin2 == "cherries" && spin3 != "cherries")
+   {
+      multiplier = 10;
+   }
+   else if (spin1 == "cherries" && spin2 == "cherries" && spin3 == "cherries")
+   {
+      multiplier = 20;
+   }
+   else if (spin1 == "BAR" && spin2 == "BAR" && spin3 == "BAR")
+   {
+      multiplier = 35;
+   } 
+   else if (spin1 == "7" && spin2 == "7" && spin3 == "7")
+   {
+      multiplier = 50;
+   }
+   else
+   {
+      multiplier = 0;
+   } 
+   return multiplier;
+}
+
+// display outcome and the winnings amount
+void Display(string spin1, string spin2, string spin3, int winnings)
+{
+   cout << "Your outcome is: ";
+   cout << spin1 << " " << spin2 << " " << spin3 << endl << endl;
+   if (winnings > 0)
+   {
+      cout << "You won: " << winnings << " dollars" << endl << endl;
+   }
+   else 
+   {
+      cout << "Sorry, you didn't win, please try again!" << endl << endl;
+   }
+}
+
+/*----------------------------------RUN (OUTPUT)------------------------------
+
+Welcome to the our Jackpot Slot Machine.
+Let's play!
+The more you bet the more you will win.
+Please play responsibly.
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 190
+
+You have entered an invalid bet, please try again!
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: -3
+
+You have entered an invalid bet, please try again!
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 12
+
+Your outcome is: BAR BAR cherries
+
+Sorry, you didn't win, please try again!
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 23
+
+Your outcome is: space cherries cherries
+
+Sorry, you didn't win, please try again!
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 34
+
+Your outcome is: 7 cherries 7
+
+Sorry, you didn't win, please try again!
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 45
+
+Your outcome is: space space space
+
+Sorry, you didn't win, please try again!
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 56
+
+Your outcome is: space space space
+
+Sorry, you didn't win, please try again!
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 67
+
+Your outcome is: cherries 7 cherries
+
+You won: 201 dollars
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 78
+
+Your outcome is: cherries cherries 7
+
+You won: 780 dollars
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 89
+
+Your outcome is: 7 space space
+
+Sorry, you didn't win, please try again!
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 90
+
+Your outcome is: cherries cherries cherries
+
+You won: 1800 dollars
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 1
+
+Your outcome is: 7 space cherries
+
+Sorry, you didn't win, please try again!
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 2
+
+Your outcome is: BAR cherries space
+
+Sorry, you didn't win, please try again!
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 3
+
+Your outcome is: BAR space 7
+
+Sorry, you didn't win, please try again!
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 4
+
+Your outcome is: 7 7 space
+
+Sorry, you didn't win, please try again!
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 5
+
+Your outcome is: cherries BAR cherries
+
+You won: 15 dollars
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 6
+
+Your outcome is: BAR cherries space
+
+Sorry, you didn't win, please try again!
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 7
+
+Your outcome is: space BAR space
+
+Sorry, you didn't win, please try again!
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 8
+
+Your outcome is: space cherries 7
+
+Sorry, you didn't win, please try again!
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 9
+
+Your outcome is: space cherries space
+
+Sorry, you didn't win, please try again!
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 90
+
+Your outcome is: 7 space 7
+
+Sorry, you didn't win, please try again!
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 95
+
+Your outcome is: 7 cherries BAR
+
+Sorry, you didn't win, please try again!
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 100
+
+Your outcome is: 7 7 space
+
+Sorry, you didn't win, please try again!
+
+Please enter your bet from 1 to 100 dollars.
+Enter 0 to quit.
+
+Your bet: 0
+
+Thank you for playing, please come again!
+Press any key to continue . . .
+
+---------------------------------------END OF RUN-----------------------------*/   
